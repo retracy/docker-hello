@@ -1,4 +1,5 @@
 FROM alpine:latest
 ARG HELLOWHO
 ENV HELLOWHO=${HELLOWHO}
+RUN echo Hello ${HELLOWHO}
 ENTRYPOINT echo Hello ${HELLOWHO}
