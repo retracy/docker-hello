@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test-echo:
     docker:
-      - image: cimg/base
+      - image: cimg/base:stable
     working_directory: ~/project
     steps:
       - checkout
@@ -20,4 +20,4 @@ jobs:
 workflows:
   test-bash-env:
     jobs:
-      - prep-echo
+      - test-echo
