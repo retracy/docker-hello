@@ -28,4 +28,6 @@ workflows:
   test-bash-env:
     jobs:
       - prep-echo
-      - test-echo
+      - test-echo:
+          requires:
+            - prep-echo
