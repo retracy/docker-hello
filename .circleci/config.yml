@@ -12,6 +12,7 @@ jobs:
           command: |
             BUILD_ARGS="\"--build-arg HELLOWHO=Bob\""
             echo "export BUILD_ARGS=${BUILD_ARGS}" >> $BASH_ENV
+      - setup_remote_docker
       - run:
           name: Test Echo
           command: |
