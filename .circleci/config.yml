@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  test-echo:
+    working_directory: ~/project
+    steps:
+      - checkout
+      - prepare:
+          command: |
+            BUILD_ARGS="\"--build-arg HELLOWHO=Bob\""
+            echo "export BUILD_ARGS=${BUILD_ARGS}" >> $BASH_ENV
+      - run:
+          name: Test Echo
+          command: |
+            docker build -t docker-hello:latest ${BUILD_ARGS} .
+
+workflows:
+  test-bash-env:
+    jobs:
+      - test-echo
