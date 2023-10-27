@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  test-echo:
+  prep-echo:
     docker:
       - image: cimg/base:stable
     working_directory: ~/project
@@ -12,6 +12,12 @@ jobs:
           command: |
             BUILD_ARGS="\"--build-arg HELLOWHO=Bob\""
             echo "export BUILD_ARGS=${BUILD_ARGS}" >> $BASH_ENV
+  test-echo:
+    docker:
+      - image: cimg/base:stable
+    working_directory: ~/project
+    steps:
+      - checkout
       - setup_remote_docker
       - run:
           name: Test Echo
@@ -21,4 +27,5 @@ jobs:
 workflows:
   test-bash-env:
     jobs:
+      - prep-echo
       - test-echo
