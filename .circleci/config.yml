@@ -23,7 +23,6 @@ jobs:
           name: Create and environment
           command: |
             BUILD_ARGS="\"--build-arg HELLOWHO=Bob\""
-            echo "export BUILD_ARGS=${BUILD_ARGS}" >> $BASH_ENV
       - run:
           name: Test Echo
           command: |
