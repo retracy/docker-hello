@@ -2,6 +2,8 @@ version: 2.1
 
 jobs:
   test-echo:
+    docker:
+      - image: cimg/base
     working_directory: ~/project
     steps:
       - checkout
